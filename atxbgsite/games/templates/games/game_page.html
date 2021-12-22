@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% load wagtailcore_tags %}
+
+{% block body_class %}template-gamepage{% endblock %}
+
+{% block content %}
+    <h1>{{ page.title }}</h1>
+    <p class="meta">{{ page.date_added }}</p>
+
+    <div class="intro">{{ page.description }}</div>
+    <div>
+        <ul>
+            {% for iter in page.genres.all %}
+            <li>{{ iter.genre.name }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+    <div>
+        <ul>
+<!--            <li>{{ page.genre }}</li>-->
+            <li>{{ page.date_added }}</li>
+            <li>{{ page.max_players }}</li>
+            <li>{{ page.min_players }}</li>
+            <li>{{ page.duration }}</li>
+            <li>{{ page.complexity }}</li>
+            <li>{{ page.competitiveness }}</li>
+        </ul>
+    </div>
+
+    <p><a href="{{ page.get_parent.url }}">Return to Library</a></p>
+
+{% endblock %}
