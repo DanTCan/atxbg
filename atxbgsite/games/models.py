@@ -84,7 +84,7 @@ class GamePage(Page):
 
     content_panels = Page.content_panels + [
         # SnippetChooserPanel('genre'),
-        InlinePanel('genres', label='Genre'),
+        InlinePanel('genres', label='Genre'),  # NEED, first arg must match related_name in Orderable.ParentalKey
         FieldPanel('date_added'),
         FieldPanel('description', classname="full"),
         FieldPanel('min_players'),
